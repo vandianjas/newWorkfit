@@ -27,6 +27,7 @@ public class WorkoutDetails_Abs extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(WorkoutDetails_Abs.this, ChooseWorkout.class);
                 startActivity(intent);
+                overridePendingTransition( R.anim.slide_in_right, R.anim.slide_out_right );
             }
         });
 
@@ -36,6 +37,7 @@ public class WorkoutDetails_Abs extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(WorkoutDetails_Abs.this, Easy_Abs1.class);
                 startActivity(intent);
+                overridePendingTransition( R.anim.slide_in_left, R.anim.slide_out_left );
             }
         });
 

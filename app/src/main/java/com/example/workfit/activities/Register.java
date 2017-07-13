@@ -105,13 +105,14 @@ public class Register extends AppCompatActivity {
                     intent.putExtra("Bundle", extras);*/
 
                     //database operations
-                    DatabaseHandler_PersonalData personaldb = DatabaseHandler_PersonalData.getInstance(Register.this);
+                    DatabaseHandler_PersonalData personaldb = DatabaseHandler_PersonalData.getInstance(getApplicationContext());
                     personaldb.addCompletePersonalData(new PersonalData(username, gender, height, weight));
 
                     DatabaseHandler_Photo databasePhoto = DatabaseHandler_Photo.getInstance(Register.this);
                     databasePhoto.addPhoto("profile", cropped); //writing to database
 
                     startActivity(intent);
+                    overridePendingTransition( R.anim.slide_in_left, R.anim.slide_out_left );
 
                 } else {
                     alertDialog.show();

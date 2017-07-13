@@ -8,6 +8,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.workfit.DataFiles.DetailedProgress_DynamicData;
 
@@ -134,6 +135,46 @@ public class DatabaseHandler extends SQLiteOpenHelper  {
 
         return db.update(TABLE_NAME, values, KEY_INDEX + " = ?",
                 new String[] { String.valueOf(database.getGroupIndex()) });
+    }
+
+    public void addOneProgress(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db1 = this.getWritableDatabase();
+
+        Cursor cursor = db.query(TABLE_NAME, new String[] {KEY_INDEX,
+                        KEY_V0, KEY_V1, KEY_V2, KEY_V3, KEY_V4, KEY_V5,
+                        KEY_V6, KEY_V7, KEY_V8, KEY_V9}, KEY_INDEX + "=" + id,
+                null, null, null, null, null);
+        if (cursor != null && cursor.moveToFirst()) {
+
+            DetailedProgress_DynamicData data = new DetailedProgress_DynamicData(
+                    Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(1)),
+                    Integer.parseInt(cursor.getString(2)), Integer.parseInt(cursor.getString(3)),
+                    Integer.parseInt(cursor.getString(4)), Integer.parseInt(cursor.getString(5)),
+                    Integer.parseInt(cursor.getString(6)), Integer.parseInt(cursor.getString(7)),
+                    Integer.parseInt(cursor.getString(8)), Integer.parseInt(cursor.getString(9)),
+                    Integer.parseInt(cursor.getString(10))
+            );
+            cursor.close();
+
+            ContentValues values = new ContentValues();
+            values.put(KEY_INDEX, id);
+            values.put(KEY_V0, data.getV0()+1);
+            values.put(KEY_V1, data.getV1()+1);
+            values.put(KEY_V2, data.getV2()+1);
+            values.put(KEY_V3, data.getV3()+1);
+            values.put(KEY_V4, data.getV4()+1);
+            values.put(KEY_V5, data.getV5()+1);
+            values.put(KEY_V6, data.getV6()+1);
+            values.put(KEY_V7, data.getV7()+1);
+            values.put(KEY_V8, data.getV8()+1);
+            values.put(KEY_V9, data.getV9()+1);
+
+            if (db1.update(TABLE_NAME, values, KEY_INDEX + " = ?",
+                    new String[] { String.valueOf(id) }) == 1) {
+                Toast.makeText(context, "Your workout progress has been saved", Toast.LENGTH_SHORT).show();
+            } else Toast.makeText(context, "Database write failed", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public ArrayList<Cursor> getData(String Query){

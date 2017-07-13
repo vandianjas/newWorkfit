@@ -35,7 +35,7 @@ public class PersonalData {
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
     public int getGender() {
         if(this.gender) {

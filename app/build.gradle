@@ -33,6 +33,10 @@ dependencies {
     //compile 'com.android.support:support-vector-drawable:25.3.1'
     //compile project(':cropper')
 
+    compile 'com.android.support:support-compat:25.1.1'
+    compile 'com.daimajia.easing:library:2.0@aar'
+    compile 'com.daimajia.androidanimations:library:2.2@aar'
+
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.7'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:26.0.0-alpha1'

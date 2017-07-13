@@ -55,8 +55,6 @@ public class SplashScreen extends AppCompatActivity {
                         db.addDatabase(new DetailedProgress_DynamicData(8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
                         db.addDatabase(new DetailedProgress_DynamicData(9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
 
-                        personaldb.addCompletePersonalData(new PersonalData("nama", true, 0, 0));
-
                         Intent i = new Intent(SplashScreen.this, Register.class);
                         startActivity(i);
                     }

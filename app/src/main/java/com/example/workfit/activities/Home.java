@@ -104,6 +104,7 @@ public class Home extends AppCompatActivity {
                 startActivity(intent);*/
                 Intent dbmanager = new Intent(Home.this, ChooseWorkout.class);
                 startActivity(dbmanager);
+                overridePendingTransition( R.anim.slide_in_left, R.anim.slide_out_left );
             }
         });
 

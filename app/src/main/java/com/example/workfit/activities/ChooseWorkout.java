@@ -22,6 +22,7 @@ public class ChooseWorkout extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ChooseWorkout.this, Home.class);
                 startActivity(intent);
+                overridePendingTransition( R.anim.slide_in_right, R.anim.slide_out_right );
             }
         });
 
@@ -41,6 +42,7 @@ public class ChooseWorkout extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ChooseWorkout.this, WorkoutDetails_Abs.class);
                 startActivity(intent);
+                overridePendingTransition( R.anim.slide_in_left, R.anim.slide_out_left );
             }
         });
 

@@ -83,7 +83,6 @@ public class DatabaseHandler_PersonalData extends SQLiteOpenHelper {
 
     public PersonalData getPersonalData() {
         SQLiteDatabase db = this.getReadableDatabase();
-
         Cursor cursor = db.query(TABLE_NAME, new String[] {KEY_NAME,
                         KEY_GENDER, KEY_HEIGHT, KEY_WEIGHT}, KEY_ID + "= 0",
                 null, null, null, null, null);
